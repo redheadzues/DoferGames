@@ -1,16 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+namespace Assets.CodeBase.Character
 {
-    [SerializeField] private DynamicJoystick _joystick;
-    [SerializeField] private float _speed;
-    [SerializeField] private CharacterController _charatcterController;
-
-    private void Update()
+    public class Mover : MonoBehaviour
     {
-        Vector3 direction = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
-        _charatcterController.Move(direction * _speed * Time.deltaTime);
+        [SerializeField] private DynamicJoystick _joystick;
+        [SerializeField] private float _speed;
+        [SerializeField] private CharacterController _charatcterController;
+        [SerializeField] private CharacterAnimator _characterAnimator;
+
+
+        private void Update()
+        {
+            Vector3 direction = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
+
+            if (direction.magnitude != 0)
+                Move(direction);
+            else
+                _characterAnimator.SetMove(false);
+        }
+
+        private void Move(Vector3 direction)
+        {
+            _charatcterController.Move(direction * _speed * Time.deltaTime);
+            transform.LookAt(transform.position + direction);
+            _characterAnimator.SetMove(true);
+        }
     }
 }
