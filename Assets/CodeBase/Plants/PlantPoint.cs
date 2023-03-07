@@ -1,39 +1,44 @@
 using UnityEngine;
 
-public class PlantPoint : MonoBehaviour
+namespace Assets.CodeBase.Plants
 {
-    private bool _isReadyToCollect;
-    private IPlant _plant;
-    private GardenCell _factory;
-
-    public bool IsReadyToCollect => _isReadyToCollect;
-
-    public void Construct(GardenCell factory)
+    public class PlantPoint : MonoBehaviour
     {
-        _factory = factory;
-        StartGrow();
-    }
+        private bool _isReadyToCollect;
+        private IPlant _plant;
+        private PlantType _type;
+        private GardenCell _factory;
 
-    public void CollectPlant()
-    {
-        _plant.Collect();
-        _isReadyToCollect = false;
-        _plant = null;
-        StartGrow();
-    }
+        public bool IsReadyToCollect => _isReadyToCollect;
 
-    private void StartGrow()
-    {
-        GameObject plant = _factory.CreatePlant();
-        _plant = plant.GetComponent<IPlant>();
-        _plant.StartGrowOnPoint(transform);
-        _plant.GrowFinished += OnGrowFinish;
+        public void Construct(GardenCell factory, PlantType type)
+        {
+            _factory = factory;
+            _type = type;
+            StartGrow();
+        }
 
-    }
+        public void CollectPlant()
+        {
+            _plant.Collect();
+            _isReadyToCollect = false;
+            _plant = null;
+            StartGrow();
+        }
 
-    private void OnGrowFinish()
-    {
-        _plant.GrowFinished -= OnGrowFinish;
-        _isReadyToCollect = true;
+        private void StartGrow()
+        {
+            GameObject plant = _factory.CreatePlant(_type);
+            _plant = plant.GetComponent<IPlant>();
+            _plant.StartGrowOnPoint(transform);
+            _plant.GrowFinished += OnGrowFinish;
+
+        }
+
+        private void OnGrowFinish()
+        {
+            _plant.GrowFinished -= OnGrowFinish;
+            _isReadyToCollect = true;
+        }
     }
 }

@@ -1,22 +1,25 @@
 ﻿using System;
 using UnityEngine;
 
-public class Wheat : MonoBehaviour, IPlant
+namespace Assets.CodeBase.Plants
 {
-    [SerializeField] private ParticleSystem _collectParticle;
-    [SerializeField] private ParticleSystem _growParticle;
-
-    public event Action GrowFinished;
-
-    public void Collect()
+    public class Wheat : MonoBehaviour, IPlant
     {
-        Instantiate(_collectParticle);
-        Destroy(gameObject);
-    }
+        [SerializeField] private ParticleSystem _collectParticle;
+        [SerializeField] private ParticleSystem _growParticle;
 
-    public void StartGrowOnPoint(Transform parrent)
-    {
-        transform.SetParent(parrent);
-        transform.localPosition = Vector3.zero;
+        public event Action GrowFinished;
+
+        public void Collect()
+        {
+            Instantiate(_collectParticle);
+            Destroy(gameObject);
+        }
+
+        public void StartGrowOnPoint(Transform parrent)
+        {
+            transform.SetParent(parrent);
+            transform.localPosition = Vector3.zero;
+        }
     }
 }

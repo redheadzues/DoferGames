@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public interface IPlant
+namespace Assets.CodeBase.Plants
 {
-    event Action GrowFinished;
-    void Collect();
-    void StartGrowOnPoint(Transform parrent);
+    public interface IPlant
+    {
+        event Action GrowFinished;
+        void Collect();
+        void StartGrowOnPoint(Transform parrent);
+    }
 }

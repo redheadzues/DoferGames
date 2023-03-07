@@ -1,24 +1,36 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GardenCell : MonoBehaviour
+namespace Assets.CodeBase.Plants
 {
-    [SerializeField] private GameObject _plant;
-   
-    [SerializeField] private List<PlantPoint> plantPoints = new List<PlantPoint>();
-
-    private void Awake()
+    public class GardenCell : MonoBehaviour
     {
-        plantPoints = GetComponentsInChildren<PlantPoint>().ToList();
+        [SerializeField] private GameObject _plant;
+        [SerializeField] private PlantType _plantType;
 
-        plantPoints.ForEach(x => x.Construct(this));
+        private List<PlantPoint> plantPoints = new List<PlantPoint>();
+
+        private void Awake()
+        {
+            if(plantPoints.Count == 0)
+                plantPoints = GetComponentsInChildren<PlantPoint>().ToList();
+        }
+
+        public void Construct(GardenCell factory)
+        {
+            plantPoints.ForEach(x => x.Construct(this, _plantType));
+        }
+
+
+        public GameObject CreatePlant(PlantType type) =>
+            Instantiate(_plant, Vector3.zero, Quaternion.identity);
+
+
     }
 
-
-    public GameObject CreatePlant() => 
-        Instantiate(_plant, Vector3.zero, Quaternion.identity);
-
-
+    public enum PlantType
+    {
+        Wheat,
+    }
 }
