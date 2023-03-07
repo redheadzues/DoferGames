@@ -11,6 +11,10 @@ namespace Assets.CodeBase.Plants
 
         public List<PlantPoint> plantPoints = new List<PlantPoint>();
 
+        private void Awake()
+        {
+            Construct(this);
+        }
 
         public void Construct(GardenCell factory)
         {
