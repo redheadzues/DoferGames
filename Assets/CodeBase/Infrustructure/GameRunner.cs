@@ -12,7 +12,6 @@ namespace Assets.CodeBase.Infrustructure
 
             if (bootstrapper == null)
                 Instantiate(BootstraperPrefab);
-
         }
     }
 }

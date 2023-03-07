@@ -9,4 +9,9 @@ namespace Assets.CodeBase.Plants
         void Collect();
         void StartGrowOnPoint(Transform parrent);
     }
+
+    public interface IPlantWithConstructor : IPlant
+    {
+        void Construct(ParticleSystem collectParticle, ParticleSystem growParticle, float growTime);
+    }
 }

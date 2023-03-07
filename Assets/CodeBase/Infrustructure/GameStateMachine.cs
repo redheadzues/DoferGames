@@ -16,7 +16,7 @@ namespace Assets.CodeBase.Infrustructure
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, services, sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain),
-                [typeof(SceneConstructState)] = new SceneConstructState(this, curtain),
+                [typeof(SceneConstructState)] = new SceneConstructState(this, curtain, services.Single<IGardenFactory>(), services.Single<IStaticDataService>()),
                 [typeof(GameLoopState)] = new GameLoopState(),
 
         };

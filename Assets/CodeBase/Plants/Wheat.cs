@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Assets.CodeBase.Plants
 {
-    public class Wheat : MonoBehaviour, IPlant
+    public class Wheat : MonoBehaviour, IPlantWithConstructor
     {
-        [SerializeField] private ParticleSystem _collectParticle;
-        [SerializeField] private ParticleSystem _growParticle;
+        private ParticleSystem _collectParticle;
+        private ParticleSystem _growParticle;
 
-        private float _growTime = 10f;
+        private float _growTime;
 
         public event Action GrowFinished;
 
@@ -19,10 +19,17 @@ namespace Assets.CodeBase.Plants
             Destroy(gameObject);
         }
 
+        public void Construct(ParticleSystem collectParticle, ParticleSystem growParticle, float growTime)
+        {
+            _collectParticle = collectParticle;
+            _growParticle = growParticle;
+            _growTime = growTime;
+        }
+
         public void StartGrowOnPoint(Transform parrent)
         {
             transform.SetParent(parrent);
-            transform.localPosition = Vector3.zero;
+            transform.localPosition = Vector3.zero;            
             Grow();
         }
 

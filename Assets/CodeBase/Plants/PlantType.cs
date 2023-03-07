@@ -3,5 +3,6 @@
     public enum PlantType
     {
         Wheat,
+        Carrot
     }
 }

@@ -14,10 +14,11 @@ namespace Assets.CodeBase.Editor
 
             GardenCell gardenCell = (GardenCell)target;
 
-            if (GUILayout.Button("Collect"))
+            if (GUILayout.Button("Collect Plant Point"))
                 gardenCell.plantPoints = gardenCell.transform.GetComponentsInChildren<PlantPoint>().ToList();
 
             EditorUtility.SetDirty(target);
         }
+
     }
 }

@@ -1,3 +1,4 @@
+using Assets.CodeBase.Infrustructure.Services;
 using UnityEngine;
 
 namespace Assets.CodeBase.Plants
@@ -7,11 +8,11 @@ namespace Assets.CodeBase.Plants
         private bool _isReadyToCollect;
         private IPlant _plant;
         private PlantType _type;
-        private GardenCell _factory;
+        private GardenFactory _factory;
 
         public bool IsReadyToCollect => _isReadyToCollect;
 
-        public void Construct(GardenCell factory, PlantType type)
+        public void Construct(GardenFactory factory, PlantType type)
         {
             _factory = factory;
             _type = type;
@@ -28,11 +29,9 @@ namespace Assets.CodeBase.Plants
 
         private void StartGrow()
         {
-            GameObject plant = _factory.CreatePlant(_type);
-            _plant = plant.GetComponent<IPlant>();
+            _plant = _factory.CreatePlant(_type);
             _plant.StartGrowOnPoint(transform);
             _plant.GrowFinished += OnGrowFinish;
-
         }
 
         private void OnGrowFinish()

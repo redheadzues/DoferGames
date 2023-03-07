@@ -21,7 +21,7 @@ namespace Assets.CodeBase.Infrustructure.States
         private void RegisterServices()
         {
             RegisterStaticData();
-            _services.RegisterSingle<IPlantFactory>(new PlantsFactory(_services.Single<IStaticDataService>()));
+            _services.RegisterSingle<IGardenFactory>(new GardenFactory(_services.Single<IStaticDataService>()));
         }
 
         public void Enter()
