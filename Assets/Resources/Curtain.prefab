@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4536504686079603578}
   - component: {fileID: 8435116888138894128}
   - component: {fileID: 759474675024590197}
-  - component: {fileID: 1845941522684176071}
+  - component: {fileID: 1346548419618318007}
   m_Layer: 5
   m_Name: Curtain
   m_TagString: Untagged
@@ -30,7 +30,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2770967673149094463}
   m_Father: {fileID: 0}
@@ -97,7 +96,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1845941522684176071
+--- !u!114 &1346548419618318007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5924754941506262209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f2413b91566c44e8100fb103f5ae48, type: 3}
+  m_Script: {fileID: 11500000, guid: 490a820f7c0ccde43881de0ed8048e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _curtain: {fileID: 5023417934251810791}
+  _curtain: {fileID: 759474675024590197}
 --- !u!1 &7517259027494719024
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +138,6 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7713580246505637768}
   m_RootOrder: 0
