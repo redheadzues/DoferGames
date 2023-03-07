@@ -12,9 +12,11 @@ namespace Assets.CodeBase.Infrustructure
         {
             _states = new Dictionary<Type, IExitableState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, services),
+                [typeof(BootstrapState)] = new BootstrapState(this, services, sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain),
-            };
+                [typeof(SceneConstructState)] = new SceneConstructState(),
+
+        };
         }
 
         public void Enter<TState>() where TState : class, ISimpleState
@@ -75,24 +77,8 @@ namespace Assets.CodeBase.Infrustructure
         }
     }
 
-    public class BootstrapState : ISimpleState
+    public class SceneConstructState : ISimpleState
     {
-        private GameStateMachine _gameStateMachine;
-        private AllServices _services;
-
-        public BootstrapState(GameStateMachine gameStateMachine, AllServices services)
-        {
-            _gameStateMachine = gameStateMachine;
-            _services = services;
-            RegisterServices();
-        }
-
-        private void RegisterServices()
-        {
-            RegisterStaticData();
-            _services.RegisterSingle<IPlantFactory>(new PlantsFactory(_services.Single<IStaticDataService>()));
-        }
-
         public void Enter()
         {
             
@@ -100,14 +86,7 @@ namespace Assets.CodeBase.Infrustructure
 
         public void Exit()
         {
-            
-        }
-
-        private void RegisterStaticData()
-        {
-            IStaticDataService staticData = new StaticDataService();
-            staticData.Load();
-            _services.RegisterSingle(staticData);
+           
         }
     }
 }
