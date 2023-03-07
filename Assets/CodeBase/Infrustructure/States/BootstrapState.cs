@@ -1,11 +1,14 @@
-﻿namespace Assets.CodeBase.Infrustructure
+﻿using Assets.CodeBase.Infrustructure.Services;
+
+namespace Assets.CodeBase.Infrustructure.States
 {
     public class BootstrapState : ISimpleState
     {
         private const string InitialScene = "InitialScene";
-        private GameStateMachine _gameStateMachine;
-        private AllServices _services;
-        private SceneLoader _sceneLoader;
+        private const string DemoScene = "DemoScene";
+        private readonly GameStateMachine _gameStateMachine;
+        private readonly AllServices _services;
+        private readonly SceneLoader _sceneLoader;
 
         public BootstrapState(GameStateMachine gameStateMachine, AllServices services, SceneLoader sceneLoader)
         {
@@ -29,11 +32,11 @@
 
         public void Exit()
         {
-            
+
         }
         private void OnLevelLoaded()
         {
-            _gameStateMachine.Enter<SceneConstructState>();
+            _gameStateMachine.Enter<LoadLevelState, string>(DemoScene);
         }
 
         private void RegisterStaticData()

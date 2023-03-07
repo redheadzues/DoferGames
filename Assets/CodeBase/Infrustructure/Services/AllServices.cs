@@ -1,4 +1,4 @@
-﻿namespace Assets.CodeBase.Infrustructure
+﻿namespace Assets.CodeBase.Infrustructure.Services
 {
     public class AllServices
     {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.CodeBase.Infrustructure.Services;
+using Assets.CodeBase.Infrustructure.States;
+using System;
 using System.Collections.Generic;
 
 namespace Assets.CodeBase.Infrustructure
@@ -14,7 +16,8 @@ namespace Assets.CodeBase.Infrustructure
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, services, sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain),
-                [typeof(SceneConstructState)] = new SceneConstructState(),
+                [typeof(SceneConstructState)] = new SceneConstructState(this, curtain),
+                [typeof(GameLoopState)] = new GameLoopState(),
 
         };
         }
@@ -44,49 +47,6 @@ namespace Assets.CodeBase.Infrustructure
         private TState GetState<TState>() where TState : class, IExitableState
         {
             return _states[typeof(TState)] as TState;
-        }
-    }
-
-    public class LoadLevelState : IPayLoadedState<string>
-    {
-        private GameStateMachine _gameStateMachine;
-        private SceneLoader _sceneLoader;
-        private Curtain _curtain;
-
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, Curtain curtain)
-        {
-            _gameStateMachine = gameStateMachine;
-            _sceneLoader = sceneLoader;
-            _curtain = curtain;
-        }
-
-        public void Enter(string sceneName)
-        {
-            _curtain.Show();
-            _sceneLoader.Load(sceneName, OnLoaded);
-        }
-
-        public void Exit()
-        {
-
-        }
-
-        private void OnLoaded()
-        {
-
-        }
-    }
-
-    public class SceneConstructState : ISimpleState
-    {
-        public void Enter()
-        {
-            
-        }
-
-        public void Exit()
-        {
-           
         }
     }
 }
