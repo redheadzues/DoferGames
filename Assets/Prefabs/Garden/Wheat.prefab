@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7560633803838701481}
   - component: {fileID: -1371189539619331728}
-  m_Layer: 0
+  - component: {fileID: 6147974353132331533}
+  m_Layer: 29
   m_Name: Wheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,8 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1836e488299000a4cae2bf30585d0699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectParticle: {fileID: 0}
-  _growParticle: {fileID: 0}
+--- !u!65 &6147974353132331533
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560633803838701480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &7560633802816328448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tall_Plant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 80ed8474c9d836c47a6d99c5eecd59ea, type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80ed8474c9d836c47a6d99c5eecd59ea, type: 3}
 --- !u!4 &8027240961204614379 stripped
@@ -139,6 +155,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cbf0c566c47a47c48b105da2f56490a7, type: 3}
       propertyPath: m_Name
       value: Wheat
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cbf0c566c47a47c48b105da2f56490a7, type: 3}
+      propertyPath: m_Layer
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cbf0c566c47a47c48b105da2f56490a7, type: 3}
       propertyPath: m_IsActive

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.CodeBase.Plants
 {
-    public class Wheat : MonoBehaviour, IPlantWithConstructor
+    public class Plant : MonoBehaviour, IPlantWithConstructor
     {
         private ParticleSystem _collectParticle;
         private ParticleSystem _growParticle;
@@ -15,7 +15,7 @@ namespace Assets.CodeBase.Plants
 
         public void Collect()
         {
-            Instantiate(_collectParticle);
+            //Instantiate(_collectParticle);
             Destroy(gameObject);
         }
 
