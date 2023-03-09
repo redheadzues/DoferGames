@@ -8,11 +8,11 @@ namespace Assets.CodeBase.Plants
         private bool _isReadyToCollect;
         private IPlant _plant;
         private PlantType _type;
-        private GardenFactory _factory;
+        private IGardenFactory _factory;
 
         public bool IsReadyToCollect => _isReadyToCollect;
 
-        public void Construct(GardenFactory factory, PlantType type)
+        public void Construct(IGardenFactory factory, PlantType type)
         {
             _factory = factory;
             _type = type;

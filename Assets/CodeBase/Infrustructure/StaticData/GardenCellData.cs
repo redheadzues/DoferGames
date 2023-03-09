@@ -8,6 +8,7 @@ namespace Assets.CodeBase.Infrustructure.StaticData
     public class GardenCellData
     {
         public PlantType PlantType;
-        public GameObject CellTemplate;
+        public GardenCell Template;
+        [Range(0,20)]public int Capacity;
     }
 }

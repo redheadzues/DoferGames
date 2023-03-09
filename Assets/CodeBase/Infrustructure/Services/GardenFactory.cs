@@ -27,11 +27,16 @@ namespace Assets.CodeBase.Infrustructure.Services
 
         public void CreateGardenCell(PlantType plantType, Vector3 point)
         {
-            GameObject template = _staticData.GetGardenCell(plantType);
+            GardenCellData cellData = _staticData.GetGardenCell(plantType);
 
-            GameObject gardenCell = Object.Instantiate(template, point, Quaternion.identity);
+            GardenCell gardenCell = Object.Instantiate(cellData.Template, point, Quaternion.identity);
 
-            gardenCell.GetComponent<GardenCell>().Construct(this);
+            gardenCell.Construct(this, cellData.Capacity);
+        }
+
+        public void CreatePlantBrick(PlantType plantType, Vector3 position)
+        {
+
         }
     }
 }

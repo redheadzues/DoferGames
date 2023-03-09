@@ -14,10 +14,11 @@ namespace Assets.CodeBase.Editor
 
             GardenCell gardenCell = (GardenCell)target;
 
-            if (GUILayout.Button("Collect Plant Point"))
-                gardenCell.plantPoints = gardenCell.transform.GetComponentsInChildren<PlantPoint>().ToList();
+          
+            GUI.backgroundColor = Color.green;
 
-            EditorUtility.SetDirty(target);
+            if (GUILayout.Button("Collect Plant Point", GUILayout.Height(40)))
+                gardenCell.PlantPoints = gardenCell.transform.GetComponentsInChildren<PlantPoint>().ToList();
         }
 
     }

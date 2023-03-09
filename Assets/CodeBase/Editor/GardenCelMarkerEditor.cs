@@ -31,9 +31,9 @@ namespace Assets.CodeBase.Editor
         {
             GardenCellStaticData staticData = AssetDatabase.LoadAssetAtPath("Assets/Resources/SceneStaticData/GardenCellData.asset", typeof(GardenCellStaticData)) as GardenCellStaticData;
             GardenCellData _cellData = staticData.GardenCellsData.FirstOrDefault(x => x.PlantType == gardenCell.PlantType);
-            Vector3 sizeCollider = _cellData.CellTemplate.GetComponent<BoxCollider>().size;
+            Vector3 sizeCollider = _cellData.Template.GetComponent<BoxCollider>().size;
 
-            Vector3 size = new Vector3(_cellData.CellTemplate.transform.localScale.x * sizeCollider.x, 1, _cellData.CellTemplate.transform.localScale.z * sizeCollider.z);
+            Vector3 size = new Vector3(_cellData.Template.transform.localScale.x * sizeCollider.x, 1, _cellData.Template.transform.localScale.z * sizeCollider.z);
 
 
             BoxGizmo(gardenCell.transform, Color.yellow, size);

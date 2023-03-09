@@ -8,7 +8,9 @@ namespace Assets.CodeBase.Infrustructure.StaticData
     {
         [SerializeField] private PlantType _plantType;
         [SerializeField, Range(0, 20)] private float _growTime;
+        [SerializeField, Range(0, 20)] int _price;
         [SerializeField] private GameObject _template;
+        [SerializeField] private PlantBrick _brickTemplate;
         [SerializeField] private ParticleSystem _growParticle;
         [SerializeField] private ParticleSystem _collectParticle;
 

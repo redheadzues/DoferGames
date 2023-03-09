@@ -7,5 +7,6 @@ namespace Assets.CodeBase.Infrustructure.Services
     {
         void CreateGardenCell(PlantType plantType, Vector3 point);
         IPlant CreatePlant(PlantType plantType);
+        void CreatePlantBrick(PlantType plantType, Vector3 position);
     }
 }
