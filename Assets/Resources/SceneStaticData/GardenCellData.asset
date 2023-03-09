@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GardenCellsData:
   - PlantType: 0
-    CellTemplate: {fileID: 1905169390842353088, guid: ba376834c50d2ba4794c38be11e2bd4b, type: 3}
-  - PlantType: 1
-    CellTemplate: {fileID: 1905169390842353088, guid: cd8c3fada92accb4ab0ac44471b854f3, type: 3}
+    Template: {fileID: 1792612330, guid: ba376834c50d2ba4794c38be11e2bd4b, type: 3}
+    Capacity: 10

@@ -226,8 +226,8 @@ GameObject:
   - component: {fileID: 1241680521636564858}
   - component: {fileID: 2780003337106637023}
   - component: {fileID: 103715865567212565}
-  - component: {fileID: 1792612330}
   - component: {fileID: 396298137938753908}
+  - component: {fileID: 1792612330}
   m_Layer: 0
   m_Name: GardenCell
   m_TagString: Untagged
@@ -314,20 +314,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1792612330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905169390842353088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20d6f63df2fbe142a6a0921986d0cf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _plantType: 0
-  plantPoints: []
 --- !u!65 &396298137938753908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -341,6 +327,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 5, z: 1.32}
   m_Center: {x: -0.00000029802322, y: 0.12160583, z: 0}
+--- !u!114 &1792612330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905169390842353088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20d6f63df2fbe142a6a0921986d0cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantType: 0
+  PlantPoints:
+  - {fileID: 1030322904}
+  - {fileID: 462611903}
+  - {fileID: 735363156}
+  - {fileID: 1134382009}
+  - {fileID: 2031679656}
+  - {fileID: 484939451}
+  - {fileID: 847147862}
+  - {fileID: 1540960719}
+  - {fileID: 2069760283}
+  - {fileID: 763244430}
+  - {fileID: 186690626}
+  - {fileID: 1901806128}
+  - {fileID: 2042211368}
+  - {fileID: 2034736588}
+  - {fileID: 383432160}
+  - {fileID: 117621280}
 --- !u!1 &2385872027527161668
 GameObject:
   m_ObjectHideFlags: 0
