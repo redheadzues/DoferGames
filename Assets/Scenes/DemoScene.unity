@@ -240,14 +240,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GardenCellMarker
       objectReference: {fileID: 0}
-    - target: {fileID: 8254147202344185885, guid: 216f3cdbb1969c44798ee89b23e0ff2e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891148909965812026, guid: 216f3cdbb1969c44798ee89b23e0ff2e, type: 3}
-      propertyPath: _type
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216f3cdbb1969c44798ee89b23e0ff2e, type: 3}
 --- !u!4 &123247253 stripped
@@ -676,7 +668,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914486837}
-  m_LocalRotation: {x: 0.32894015, y: -0.000000022979357, z: 0.000000008004264, w: 0.9443508}
+  m_LocalRotation: {x: 0.32894015, y: 0.000000022979357, z: -0.000000008004264, w: 0.9443508}
   m_LocalPosition: {x: -2.7555337, y: 10.616941, z: -16.385506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -761,7 +753,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.32894015, y: -0.000000022979357, z: 0.000000008004264, w: 0.9443508}
+  m_LocalRotation: {x: 0.32894015, y: 0.000000022979357, z: -0.000000008004264, w: 0.9443508}
   m_LocalPosition: {x: -2.7555337, y: 10.616941, z: -16.385506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
