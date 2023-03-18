@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   _plantType: 0
-  _growTime: 10
+  _growTime: 1
+  _price: 0
   _template: {fileID: 7560633803838701480, guid: 541dc48eb5814b149a799dcf2ddc30a0, type: 3}
+  _brickTemplate: {fileID: 0}
   _growParticle: {fileID: 0}
   _collectParticle: {fileID: 0}
