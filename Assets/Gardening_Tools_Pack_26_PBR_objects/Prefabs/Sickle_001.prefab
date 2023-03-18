@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4122536980077856725}
   - component: {fileID: 4122536980077856715}
   - component: {fileID: 4122536980077856724}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa2f8ab9dbc0ca4999ddb2a077d2d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 0}
 --- !u!54 &3043519786809767711
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ GameObject:
   - component: {fileID: 4122536980830170120}
   - component: {fileID: 4122536980830170126}
   - component: {fileID: 4122536980830170127}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +252,7 @@ GameObject:
   - component: {fileID: 4122536980869241709}
   - component: {fileID: 4122536980869241699}
   - component: {fileID: 4122536980869241708}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +306,7 @@ GameObject:
   - component: {fileID: 4122536981128123938}
   - component: {fileID: 4122536981128123936}
   - component: {fileID: 4122536981128123937}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +360,7 @@ GameObject:
   - component: {fileID: 4122536981239940331}
   - component: {fileID: 4122536981239940329}
   - component: {fileID: 4122536981239940330}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +414,7 @@ GameObject:
   - component: {fileID: 4122536981616427062}
   - component: {fileID: 4122536981616427060}
   - component: {fileID: 4122536981616427061}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +468,7 @@ GameObject:
   - component: {fileID: 4122536981955429715}
   - component: {fileID: 4122536981955429713}
   - component: {fileID: 4122536981955429714}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Sickle_001_C05
   m_TagString: Untagged
   m_Icon: {fileID: 0}

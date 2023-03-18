@@ -1,4 +1,5 @@
 using Assets.CodeBase.GardenTools;
+using System;
 using UnityEngine;
 
 namespace Assets.CodeBase.Character
@@ -16,6 +17,7 @@ namespace Assets.CodeBase.Character
             _harvestZone.TriggerEnter += OnHarvestZoneEnter;
             _reciver.CollectStarted += OnCollectStarted;
             _reciver.CollectFinished += OnCollectFinished;
+            _characterAnimator.MoveStarted += OnCollectFinished;
             _tool.gameObject.SetActive(false);
         }
 
@@ -24,7 +26,9 @@ namespace Assets.CodeBase.Character
             _harvestZone.TriggerEnter -= OnHarvestZoneEnter;
             _reciver.CollectStarted -= OnCollectStarted;
             _reciver.CollectFinished -= OnCollectFinished;
+            _characterAnimator.MoveStarted -= OnCollectFinished;
         }
+
 
         private void OnHarvestZoneEnter(Collider collider)
         {

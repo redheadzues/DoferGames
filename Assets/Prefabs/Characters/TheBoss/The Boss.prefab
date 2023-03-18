@@ -3869,6 +3869,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7710758328185217781}
     m_Modifications:
+    - target: {fileID: 3669687143495769392, guid: 2848a0806986778408b04c54197ae691, type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 5533363935527976343}
     - target: {fileID: 4122536980541368586, guid: 2848a0806986778408b04c54197ae691, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3922,5 +3926,10 @@ PrefabInstance:
 --- !u!4 &4594822969947629117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4122536980541368586, guid: 2848a0806986778408b04c54197ae691, type: 3}
+  m_PrefabInstance: {fileID: 500505042644422455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5533363935527976343 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5348116373518611104, guid: 2848a0806986778408b04c54197ae691, type: 3}
   m_PrefabInstance: {fileID: 500505042644422455}
   m_PrefabAsset: {fileID: 0}
