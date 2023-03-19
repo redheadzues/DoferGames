@@ -1,16 +1,16 @@
 using Assets.CodeBase.Infrustructure.Services;
+using System;
 using UnityEngine;
 
 namespace Assets.CodeBase.Plants
 {
     public class PlantPoint : MonoBehaviour
     {
-        private bool _isReadyToCollect;
         private IPlant _plant;
         private PlantType _type;
         private IGardenFactory _factory;
 
-        public bool IsReadyToCollect => _isReadyToCollect;
+        public event Action Harvested;
 
         public void Construct(IGardenFactory factory, PlantType type)
         {
@@ -19,25 +19,18 @@ namespace Assets.CodeBase.Plants
             StartGrow();
         }
 
-        public void CollectPlant()
-        {
-            _plant.Collect();
-            _isReadyToCollect = false;
-            _plant = null;
-            StartGrow();
-        }
-
         private void StartGrow()
         {
             _plant = _factory.CreatePlant(_type);
             _plant.StartGrowOnPoint(transform);
-            _plant.GrowFinished += OnGrowFinish;
+            _plant.Harvested += OnHarvested;
         }
 
-        private void OnGrowFinish()
+        private void OnHarvested(IPlant plant)
         {
-            _plant.GrowFinished -= OnGrowFinish;
-            _isReadyToCollect = true;
+            plant.Harvested -= OnHarvested;
+            Harvested?.Invoke();
+            StartGrow();
         }
     }
 }

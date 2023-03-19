@@ -5,7 +5,7 @@ namespace Assets.CodeBase.Plants
 {
     public interface IPlant
     {
-        event Action GrowFinished;
+        event Action<IPlant> Harvested;
         void Collect();
         void StartGrowOnPoint(Transform parrent);
     }

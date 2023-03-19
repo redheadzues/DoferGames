@@ -36,7 +36,10 @@ namespace Assets.CodeBase.Infrustructure.Services
 
         public void CreatePlantBrick(PlantType plantType, Vector3 position)
         {
+            PlantStaticData plantStaticData =_staticData.GetPlantData(plantType);
 
+            GameObject brick = Object.Instantiate(plantStaticData.BrickTemplate, position, Quaternion.identity);
+            brick.GetComponent<PlantBrick>().Construct(plantStaticData.Price);
         }
     }
 }

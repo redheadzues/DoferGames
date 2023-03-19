@@ -8,14 +8,9 @@ public class CharacterAnimator : MonoBehaviour
     private readonly int _isMovingHash = Animator.StringToHash("IsMoving");
     private readonly int _harvestHash = Animator.StringToHash("Harvest");
 
-    public event Action MoveStarted;
-
     public void SetMove(bool isMoving)
     {
         _animator.SetBool(_isMovingHash, isMoving);
-
-        if (isMoving == true)
-            MoveStarted?.Invoke();
     }
 
     public void Harvest() => 

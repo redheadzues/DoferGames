@@ -1,4 +1,6 @@
+using Assets.CodeBase.Animation;
 using Assets.CodeBase.GardenTools;
+using Assets.CodeBase.Plants;
 using System;
 using UnityEngine;
 
@@ -17,7 +19,8 @@ namespace Assets.CodeBase.Character
             _harvestZone.TriggerEnter += OnHarvestZoneEnter;
             _reciver.CollectStarted += OnCollectStarted;
             _reciver.CollectFinished += OnCollectFinished;
-            _characterAnimator.MoveStarted += OnCollectFinished;
+            _reciver.MoveStarted += OnMoveStarted;
+            _reciver.MoveFinished += OnMoveFinished;
             _tool.gameObject.SetActive(false);
         }
 
@@ -26,28 +29,41 @@ namespace Assets.CodeBase.Character
             _harvestZone.TriggerEnter -= OnHarvestZoneEnter;
             _reciver.CollectStarted -= OnCollectStarted;
             _reciver.CollectFinished -= OnCollectFinished;
-            _characterAnimator.MoveStarted -= OnCollectFinished;
+            _reciver.MoveStarted -= OnMoveStarted;
+            _reciver.MoveFinished -= OnMoveFinished;
         }
 
+        private void OnMoveStarted()
+        {
+            _harvestZone.gameObject.SetActive(false);
+            OnCollectFinished();
+        }
+
+        private void OnMoveFinished()
+        {
+            _harvestZone.gameObject.SetActive(true);
+        }
 
         private void OnHarvestZoneEnter(Collider collider)
         {
-            _harvestZone.gameObject.SetActive(false);
-            _tool.gameObject.SetActive(true);
-            transform.LookAt(collider.transform.position);
-            _characterAnimator.Harvest();
+            if(collider.TryGetComponent(out IPlant plant))
+            {
+                _harvestZone.gameObject.SetActive(false);
+                _tool.gameObject.SetActive(true);
+                transform.LookAt(collider.transform.position);
+                _characterAnimator.Harvest();
+            }
         }
 
-        public void OnCollectStarted()
+        private void OnCollectStarted()
         {
             _tool.EnebleCollider();
         }
 
-        public void OnCollectFinished()
+        private void OnCollectFinished()
         {
             _tool.DisableCollider();
             _tool.gameObject.SetActive(false);
-            _harvestZone.gameObject.SetActive(true);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Assets.CodeBase.Infrustructure.StaticData
         [SerializeField, Range(0, 20)] private float _growTime;
         [SerializeField, Range(0, 20)] int _price;
         [SerializeField] private GameObject _template;
-        [SerializeField] private PlantBrick _brickTemplate;
+        [SerializeField] private GameObject _brickTemplate;
         [SerializeField] private ParticleSystem _growParticle;
         [SerializeField] private ParticleSystem _collectParticle;
 
@@ -19,6 +19,8 @@ namespace Assets.CodeBase.Infrustructure.StaticData
         public ParticleSystem GrowParticle => _growParticle;
         public ParticleSystem CollectParticle => _collectParticle;
         public PlantType PlantType => _plantType;
+        public GameObject BrickTemplate => _brickTemplate;
+        public int Price => _price;
 
     }
 }

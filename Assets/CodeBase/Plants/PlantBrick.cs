@@ -5,53 +5,60 @@ namespace Assets.CodeBase.Plants
 {
     public class PlantBrick : MonoBehaviour
     {
-        private HingeJoint _joint;
+        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private HingeJoint _joint;
+        [SerializeField] private Collider _collider;
 
         private int _price;
+        private Rigidbody _connectingBody;
+        private Vector3 _baseScale;
         public int Price => _price;
-
-        private void Update()
-        {
-            if(Input.GetMouseButtonDown(0))
-                Appear();
-        }
+        public Rigidbody Rigidbody => _rigidbody;
 
         public void Construct(int price)
         {
             _price = price;
+            DisconnectJoint();
             Appear();
+            _baseScale = transform.localScale;
         }
 
-        public void ConnectJoint(Rigidbody connectedBody)
+        public void Take(Rigidbody connectedBody)
         {
-            _joint = gameObject.AddComponent<HingeJoint>();
-            
-            SetupJoint();
-            _joint.connectedBody = connectedBody;
+            _connectingBody = connectedBody;
+            _collider.enabled = false;
+
+            transform.SetParent(connectedBody.transform);
+
+            var jumpSequence = DOTween.Sequence();
+
+            jumpSequence
+                .Join(transform.DOLocalJump(Vector3.zero, 5, 1, 1))
+                .AppendCallback(ConnectJoint);
+        }
+
+        public void ConnectJoint()
+        {
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+            transform.SetParent(null);
+            transform.localScale = _baseScale;
+
+            _rigidbody.isKinematic = false;
+            _joint.connectedBody = _connectingBody;
         }
 
         public void DisconnectJoint()
         {
+            _rigidbody.isKinematic = true;
             _joint.connectedBody = null;
-            Component.Destroy(_joint);
         }
 
         private void Appear()
         {
-            Vector2 randomPoint = Random.insideUnitCircle * 2;
+            Vector2 randomPoint = Random.insideUnitCircle * 3;
             Vector3 jumpPoint = new Vector3(transform.position.x + randomPoint.x, transform.position.y, transform.position.z + randomPoint.y);
             
             transform.DOJump(jumpPoint, 2, 1, 0.7f);
-        }
-
-        private void SetupJoint()
-        {         
-            _joint.massScale = 2.5f;
-            _joint.useSpring = true;
-            JointSpring springSetting = _joint.spring;
-            springSetting.spring = 1000f;
-            springSetting.damper = 100;
-            _joint.spring = springSetting;
         }
     }
 }

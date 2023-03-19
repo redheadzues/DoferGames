@@ -10,13 +10,18 @@ namespace Assets.CodeBase.Plants
         private ParticleSystem _growParticle;
 
         private float _growTime;
+        private bool _isReadyTocollect;
 
-        public event Action GrowFinished;
+        public event Action<IPlant> Harvested;
 
         public void Collect()
         {
-            //Instantiate(_collectParticle);
-            Destroy(gameObject);
+            if(_isReadyTocollect == true)
+            {
+                //Instantiate(_collectParticle);
+                Harvested?.Invoke(this);
+                Destroy(gameObject);
+            }
         }
 
         public void Construct(ParticleSystem collectParticle, ParticleSystem growParticle, float growTime)
@@ -37,11 +42,16 @@ namespace Assets.CodeBase.Plants
         {
             Vector3 localScale = transform.localScale;
 
-            var growSequence = DOTween.Sequence();
+            Sequence growSequence = DOTween.Sequence();
 
             growSequence.Join(transform.DOScale(0, 0))
                 .Join(transform.DOScale(localScale, _growTime))
-                .AppendCallback(() => GrowFinished.Invoke());;
+                .AppendCallback(GrowFinished);
+        }
+
+        private void GrowFinished()
+        {
+            _isReadyTocollect = true;
         }
     }
 }

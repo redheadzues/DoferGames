@@ -15,4 +15,4 @@ MonoBehaviour:
   GardenCellsData:
   - PlantType: 0
     Template: {fileID: 1792612330, guid: ba376834c50d2ba4794c38be11e2bd4b, type: 3}
-    Capacity: 10
+    Capacity: 5
