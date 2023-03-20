@@ -18,7 +18,7 @@ namespace Assets.CodeBase.Plants
         {
             if(_isReadyTocollect == true)
             {
-                //Instantiate(_collectParticle);
+                Instantiate(_collectParticle, transform.position + Vector3.up, Quaternion.Euler(-90, 0,0));
                 Harvested?.Invoke(this);
                 Destroy(gameObject);
             }
@@ -34,7 +34,8 @@ namespace Assets.CodeBase.Plants
         public void StartGrowOnPoint(Transform parrent)
         {
             transform.SetParent(parrent);
-            transform.localPosition = Vector3.zero;            
+            transform.localPosition = Vector3.zero;
+            _growParticle = Instantiate(_growParticle, transform);
             Grow();
         }
 
@@ -45,12 +46,13 @@ namespace Assets.CodeBase.Plants
             Sequence growSequence = DOTween.Sequence();
 
             growSequence.Join(transform.DOScale(0, 0))
-                .Join(transform.DOScale(localScale, _growTime))
+                .Join(transform.DOScale(localScale, _growTime).SetEase(Ease.InCubic))
                 .AppendCallback(GrowFinished);
         }
 
         private void GrowFinished()
         {
+            Destroy(_growParticle.gameObject);
             _isReadyTocollect = true;
         }
     }

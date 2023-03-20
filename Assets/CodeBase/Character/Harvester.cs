@@ -50,7 +50,6 @@ namespace Assets.CodeBase.Character
             {
                 _harvestZone.gameObject.SetActive(false);
                 _tool.gameObject.SetActive(true);
-                transform.LookAt(collider.transform.position);
                 _characterAnimator.Harvest();
             }
         }

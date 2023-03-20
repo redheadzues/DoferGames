@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8435116888138894128}
   - component: {fileID: 759474675024590197}
   - component: {fileID: 1346548419618318007}
+  - component: {fileID: 4624899549971214145}
   m_Layer: 5
   m_Name: Curtain
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &8435116888138894128
 MonoBehaviour:
@@ -109,6 +110,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curtain: {fileID: 759474675024590197}
+--- !u!222 &4624899549971214145
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924754941506262209}
+  m_CullTransparentMesh: 1
 --- !u!1 &7517259027494719024
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,14 +177,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0b7b471cdffe7eb43bea22efa21e6864, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

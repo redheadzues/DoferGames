@@ -5,52 +5,58 @@ namespace Assets.CodeBase.Plants
 {
     public class PlantBrick : MonoBehaviour
     {
-        [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private HingeJoint _joint;
+        [SerializeField] private float _speed;
         [SerializeField] private Collider _collider;
 
         private int _price;
-        private Rigidbody _connectingBody;
+        private Transform _followingBrick;
         private Vector3 _baseScale;
+        private bool _isFollowingAllow;
         public int Price => _price;
-        public Rigidbody Rigidbody => _rigidbody;
 
         public void Construct(int price)
         {
             _price = price;
-            DisconnectJoint();
             Appear();
             _baseScale = transform.localScale;
         }
 
-        public void Take(Rigidbody connectedBody)
+        private void LateUpdate()
         {
-            _connectingBody = connectedBody;
-            _collider.enabled = false;
+            if (_isFollowingAllow)
+            {
+                transform.position = new Vector3(
+                    Mathf.Lerp(transform.position.x, _followingBrick.position.x, _speed * Time.deltaTime),
+                    transform.position.y,
+                    Mathf.Lerp(transform.position.z, _followingBrick.position.z, _speed * Time.deltaTime));
 
-            transform.SetParent(connectedBody.transform);
-
-            var jumpSequence = DOTween.Sequence();
-
-            jumpSequence
-                .Join(transform.DOLocalJump(Vector3.zero, 5, 1, 1))
-                .AppendCallback(ConnectJoint);
+                transform.rotation = _followingBrick.rotation;
+            }
         }
 
-        public void ConnectJoint()
+        public void Take(Transform followingBrick)
+        {
+            _collider.enabled = false;
+            _followingBrick = followingBrick;
+
+            transform.SetParent(followingBrick.transform);
+
+            transform.DOLocalJump(Vector3.zero + Vector3.up * 0.3f, 5, 1, 1).OnComplete(FinishAddinStack);
+        }
+
+        public void Disconect()
+        {
+            _isFollowingAllow = false;
+            _followingBrick = null;
+        }
+
+        public void FinishAddinStack()
         {
             transform.localRotation = Quaternion.Euler(Vector3.zero);
             transform.SetParent(null);
             transform.localScale = _baseScale;
-
-            _rigidbody.isKinematic = false;
-            _joint.connectedBody = _connectingBody;
-        }
-
-        public void DisconnectJoint()
-        {
-            _rigidbody.isKinematic = true;
-            _joint.connectedBody = null;
+            _isFollowingAllow = true;
+            
         }
 
         private void Appear()

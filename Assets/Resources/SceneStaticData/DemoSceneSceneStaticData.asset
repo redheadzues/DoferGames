@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneKey: DemoScene
   SceneGardenCells:
-  - Position: {x: 7.4799995, y: 0.5, z: -1.8600001}
+  - Position: {x: 11.780001, y: 0.5, z: -5.05}
     PlantType: 0
-  - Position: {x: 7.43, y: 0.5, z: -5.05}
+  - Position: {x: 11.769215, y: 0.5, z: -8.103008}
     PlantType: 0
-  - Position: {x: 7.4192147, y: 0.5, z: -8.103008}
+  - Position: {x: 11.83, y: 0.5, z: -1.8600001}
     PlantType: 0
